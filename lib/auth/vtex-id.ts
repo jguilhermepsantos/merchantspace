@@ -1,12 +1,19 @@
+import { VtexConfigError } from "@/lib/vtex/client";
 import type { VtexAuthStart, VtexAuthToken, VtexUser, VtexAccessKeyValidateResponse } from "@/lib/types/auth";
 
-const VTEX_ACCOUNT = process.env.VTEX_ACCOUNT!;
+const VTEX_ACCOUNT = process.env.VTEX_ACCOUNT;
 const VTEX_ENVIRONMENT = process.env.VTEX_ENVIRONMENT ?? "vtexcommercestable";
-const BASE = `https://${VTEX_ACCOUNT}.${VTEX_ENVIRONMENT}.com.br`;
+
+// Without this check a missing VTEX_ACCOUNT builds `https://undefined...`, and
+// VTEX answers 400 — which reads like a VTEX failure rather than a config one.
+function base(): string {
+  if (!VTEX_ACCOUNT) throw new VtexConfigError("VTEX_ACCOUNT is not set");
+  return `https://${VTEX_ACCOUNT}.${VTEX_ENVIRONMENT}.com.br`;
+}
 
 /** GET /api/vtexid/pub/authentication/start?scope={account} (ID: 3122) */
 export async function startVtexAuth(): Promise<VtexAuthStart> {
-  const url = `${BASE}/api/vtexid/pub/authentication/start?scope=${VTEX_ACCOUNT}`;
+  const url = `${base()}/api/vtexid/pub/authentication/start?scope=${VTEX_ACCOUNT}`;
   const res = await fetch(url, {
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     cache: "no-store",
@@ -22,7 +29,7 @@ export async function startVtexAuth(): Promise<VtexAuthStart> {
  * Exchanges a Google access_token for a VTEX authToken.
  */
 export async function exchangeGoogleToken(googleAccessToken: string): Promise<string> {
-  const url = `${BASE}/api/vtexid/audience/${VTEX_ACCOUNT}/${VTEX_ENVIRONMENT}/webstore/provider/oauth/exchange`;
+  const url = `${base()}/api/vtexid/audience/${VTEX_ACCOUNT}/${VTEX_ENVIRONMENT}/webstore/provider/oauth/exchange`;
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -49,7 +56,7 @@ export async function exchangeGoogleToken(googleAccessToken: string): Promise<st
  * Sends an OTP to the user's email. Pass authenticationToken as _vss cookie.
  */
 export async function sendAccessKey(email: string, authenticationToken: string): Promise<void> {
-  const url = `${BASE}/api/vtexid/pub/authentication/accesskey/send?email=${encodeURIComponent(email)}`;
+  const url = `${base()}/api/vtexid/pub/authentication/accesskey/send?email=${encodeURIComponent(email)}`;
   const res = await fetch(url, {
     method: "POST",
     headers: {
@@ -74,7 +81,7 @@ export async function validateAccessKey(
   accessKey: string,
   authenticationToken: string
 ): Promise<string> {
-  const url = `${BASE}/api/vtexid/pub/authentication/accesskey/validate`;
+  const url = `${base()}/api/vtexid/pub/authentication/accesskey/validate`;
   const formData = new FormData();
   formData.append("login", login);
   formData.append("accessKey", accessKey);
@@ -121,7 +128,7 @@ export async function validateAccessKey(
  * Validates a VTEX auth token and returns user info.
  */
 export async function validateVtexToken(authToken: string): Promise<VtexUser> {
-  const url = `${BASE}/api/vtexid/credential/validate?an=${VTEX_ACCOUNT}`;
+  const url = `${base()}/api/vtexid/credential/validate?an=${VTEX_ACCOUNT}`;
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
