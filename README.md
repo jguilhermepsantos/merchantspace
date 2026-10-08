@@ -94,7 +94,8 @@ Create one App Key per account in **VTEX Admin → Account Settings → API Keys
 ### Environment variables
 
 `.env.local.example` lists every variable with comments. Fill in the account
-names, the two key/token pairs, `VTEX_SELLER_ID`, a `NEXTAUTH_SECRET`, and
+names, the two key/token pairs, `VTEX_SELLER_ID` and `VTEX_SELLER_NAME`, a
+`NEXTAUTH_SECRET`, and
 `MCP_SERVER_TOKEN` if you intend to use the MCP server.
 
 `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` are only needed if you want the
