@@ -48,6 +48,24 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Planeta Sport palette — brand-600 is their primary blue (#007dc3),
+   brand-700 their hover/active (#005a8d), sport-yellow their highlight. */
+@theme {
+  --color-brand-50: #e6f3fb;
+  --color-brand-100: #cce7f6;
+  --color-brand-200: #99cfed;
+  --color-brand-300: #5fb2e1;
+  --color-brand-400: #2a97d3;
+  --color-brand-500: #0a89cc;
+  --color-brand-600: #007dc3;
+  --color-brand-700: #005a8d;
+  --color-brand-800: #00466e;
+  --color-brand-900: #003352;
+  --color-brand-950: #001f33;
+  --color-sport-yellow: #ffe200;
+  --color-sport-yellow-light: #fff07c;
+}
+
 :root {
   /* Light theme */
   --background: oklch(1 0 0);
@@ -56,8 +74,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  /* Primary = indigo-600 #4f46e5 */
-  --primary: oklch(0.511 0.262 276.966);
+  /* Primary = Planeta Sport blue #007dc3 */
+  --primary: #007dc3;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -68,26 +86,27 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  /* Ring = indigo-300 */
-  --ring: oklch(0.707 0.165 276.966);
-  --chart-1: oklch(0.511 0.262 276.966);
-  --chart-2: oklch(0.426 0.199 276.966);
+  /* Ring = brand-300 */
+  --ring: #5fb2e1;
+  --chart-1: #007dc3;
+  --chart-2: #005a8d;
   --chart-3: oklch(0.556 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.5rem;
-  /* Sidebar = zinc-900 #18181b */
-  --sidebar: oklch(0.21 0.006 285.885);
+  /* Planeta Sport uses square corners throughout */
+  --radius: 0rem;
+  /* Sidebar = brand-950, a deep navy */
+  --sidebar: #001f33;
   --sidebar-foreground: oklch(0.96 0 0);
-  /* Sidebar primary = indigo-600 */
-  --sidebar-primary: oklch(0.511 0.262 276.966);
+  /* Sidebar primary = brand-600 */
+  --sidebar-primary: #007dc3;
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  /* Sidebar accent = zinc-700 hover */
-  --sidebar-accent: oklch(0.37 0.013 285.805);
+  /* Sidebar accent = brand-900 hover */
+  --sidebar-accent: #003352;
   --sidebar-accent-foreground: oklch(0.96 0 0);
-  /* Sidebar border = zinc-800 */
-  --sidebar-border: oklch(0.274 0.006 286.033);
-  --sidebar-ring: oklch(0.511 0.262 276.966);
+  /* Sidebar border = brand-900 */
+  --sidebar-border: #003352;
+  --sidebar-ring: #007dc3;
 }
 
 .dark {

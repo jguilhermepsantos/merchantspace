@@ -7,11 +7,11 @@ interface KpiCardProps {
   sub?: string;
   trend?: { value: string; direction: "up" | "down" | "neutral" };
   icon: React.ReactNode;
-  accent?: "indigo" | "green" | "amber" | "zinc";
+  accent?: "brand" | "green" | "amber" | "zinc";
 }
 
 const ACCENT_STYLES = {
-  indigo: "bg-indigo-50 text-indigo-600",
+  brand: "bg-brand-50 text-brand-600",
   green: "bg-green-50 text-green-600",
   amber: "bg-amber-50 text-amber-600",
   zinc: "bg-zinc-100 text-zinc-500",
@@ -23,7 +23,7 @@ export function KpiCard({
   sub,
   trend,
   icon,
-  accent = "indigo",
+  accent = "brand",
 }: KpiCardProps) {
   return (
     <div className="bg-white rounded-lg border border-zinc-200 p-5 flex items-start gap-4">

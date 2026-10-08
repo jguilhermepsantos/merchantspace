@@ -23,7 +23,7 @@ export function WarehouseCard({ warehouse }: WarehouseCardProps) {
 
   if (editing) {
     return (
-      <div className="bg-white rounded-lg border border-indigo-200 p-5">
+      <div className="bg-white rounded-lg border border-brand-200 p-5">
         <form action={editAction} className="space-y-3">
           <input type="hidden" name="id" value={warehouse.id} />
           <div>
@@ -35,14 +35,14 @@ export function WarehouseCard({ warehouse }: WarehouseCardProps) {
               type="text"
               required
               defaultValue={warehouse.name}
-              className="w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+              className="w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 focus:outline-none focus:ring-2 focus:ring-brand-500 transition"
             />
           </div>
           <div className="flex gap-2">
             <button
               type="submit"
               disabled={editPending}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-indigo-700 transition-colors disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-brand-700 transition-colors disabled:opacity-50"
             >
               {editPending ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : "Save"}
             </button>
@@ -63,8 +63,8 @@ export function WarehouseCard({ warehouse }: WarehouseCardProps) {
 
   return (
     <div className="bg-white rounded-lg border border-zinc-200 p-5 flex items-start gap-4">
-      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-50 shrink-0">
-        <Warehouse className="w-5 h-5 text-indigo-600" />
+      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-50 shrink-0">
+        <Warehouse className="w-5 h-5 text-brand-600" />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export function WarehouseCard({ warehouse }: WarehouseCardProps) {
       <div className="flex items-center gap-1 shrink-0">
         <button
           onClick={() => setEditing(true)}
-          className="p-1.5 rounded text-zinc-400 hover:text-indigo-600 hover:bg-indigo-50 transition-colors"
+          className="p-1.5 rounded text-zinc-400 hover:text-brand-600 hover:bg-brand-50 transition-colors"
           title="Edit warehouse"
         >
           <Pencil className="w-3.5 h-3.5" />

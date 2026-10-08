@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getAuthToken } from "@/lib/auth/session";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { BrandMark } from "@/components/layout/BrandMark";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -25,16 +26,14 @@ export default async function VerifyPage({ searchParams }: VerifyPageProps) {
   const errorMessage = error ? (ERROR_MESSAGES[error] ?? "An error occurred.") : null;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-brand-950 px-4">
       <div className="w-full max-w-sm">
-        <Card className="shadow-md border-zinc-200">
+        <Card className="shadow-xl border-0 border-t-4 border-t-sport-yellow">
           <CardHeader className="pb-4 pt-8 px-8">
             <div className="flex flex-col items-center gap-4">
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary shadow-sm">
-                <span className="text-primary-foreground text-lg font-bold">MS</span>
-              </div>
+              <BrandMark tone="light" />
               <div className="text-center">
-                <h1 className="text-2xl font-bold text-zinc-900">Check your email</h1>
+                <h1 className="text-xl font-bold text-zinc-900">Check your email</h1>
                 <p className="mt-1 text-sm text-zinc-500">
                   Enter the 6-digit code we sent you
                 </p>

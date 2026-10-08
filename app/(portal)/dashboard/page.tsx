@@ -19,8 +19,8 @@ import type { StatusDataPoint } from "@/components/dashboard/OrdersByStatus";
 const STATUS_COLORS: Record<string, string> = {
   invoiced: "#22c55e",
   handling: "#8b5cf6",
-  "ready-for-handling": "#6366f1",
-  "payment-approved": "#3b82f6",
+  "ready-for-handling": "#007dc3",
+  "payment-approved": "#00466e",
   "payment-pending": "#f59e0b",
   canceled: "#ef4444",
   "window-to-cancel": "#f97316",
@@ -103,7 +103,7 @@ export default async function DashboardPage() {
           value={formatPrice(totalRevenueCents)}
           sub={`from ${orders.length} orders shown`}
           icon={<TrendingUp className="w-5 h-5" />}
-          accent="indigo"
+          accent="brand"
         />
         <KpiCard
           label="Total Orders"
@@ -173,7 +173,7 @@ export default async function DashboardPage() {
                 </div>
                 <div>
                   <p className="text-xs text-zinc-400">Net payout</p>
-                  <p className="text-3xl font-bold text-indigo-600 mt-0.5">
+                  <p className="text-3xl font-bold text-brand-600 mt-0.5">
                     {formatPrice(nextPayout.netPayout)}
                   </p>
                 </div>
@@ -192,7 +192,7 @@ export default async function DashboardPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 pt-1">
-                  <span className="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-700">
+                  <span className="inline-flex items-center rounded-full bg-brand-100 px-2.5 py-0.5 text-xs font-medium text-brand-700">
                     Upcoming
                   </span>
                   <span className="text-xs text-zinc-400">
