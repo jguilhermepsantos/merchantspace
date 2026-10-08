@@ -54,8 +54,8 @@ export function RevenueChart({ data }: RevenueChartProps) {
       <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 8 }}>
         <defs>
           <linearGradient id="revenueGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.15} />
-            <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
+            <stop offset="5%" stopColor="#007dc3" stopOpacity={0.15} />
+            <stop offset="95%" stopColor="#007dc3" stopOpacity={0} />
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" vertical={false} />
@@ -81,11 +81,11 @@ export function RevenueChart({ data }: RevenueChartProps) {
         <Area
           type="monotone"
           dataKey="revenue"
-          stroke="#4f46e5"
+          stroke="#007dc3"
           strokeWidth={2}
           fill="url(#revenueGrad)"
           dot={false}
-          activeDot={{ r: 4, fill: "#4f46e5", strokeWidth: 0 }}
+          activeDot={{ r: 4, fill: "#007dc3", strokeWidth: 0 }}
         />
       </AreaChart>
     </ResponsiveContainer>

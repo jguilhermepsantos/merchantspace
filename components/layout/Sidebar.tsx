@@ -12,6 +12,7 @@ import {
   Settings,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BrandMark } from "@/components/layout/BrandMark";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -32,12 +33,10 @@ export function Sidebar() {
   return (
     <aside className="flex flex-col w-60 min-h-screen bg-sidebar border-r border-sidebar-border shrink-0">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-5 h-14 border-b border-sidebar-border">
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary shrink-0">
-          <span className="text-primary-foreground text-sm font-bold">MS</span>
-        </div>
-        <span className="text-sidebar-foreground font-semibold text-sm tracking-tight">
-          MerchantSpace
+      <div className="flex flex-col justify-center gap-1 px-5 h-14 border-b border-sidebar-border">
+        <BrandMark />
+        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
+          Seller Portal
         </span>
       </div>
 
@@ -50,10 +49,10 @@ export function Sidebar() {
               key={href}
               href={href}
               className={cn(
-                "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                "flex items-center gap-3 px-3 py-2 border-l-4 text-sm font-semibold uppercase tracking-wide transition-colors",
                 isActive
-                  ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                  : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                  ? "border-sport-yellow bg-sidebar-primary text-sidebar-primary-foreground"
+                  : "border-transparent text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               )}
             >
               <Icon className="w-4 h-4 shrink-0" />
@@ -72,10 +71,10 @@ export function Sidebar() {
               key={href}
               href={href}
               className={cn(
-                "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                "flex items-center gap-3 px-3 py-2 border-l-4 text-sm font-semibold uppercase tracking-wide transition-colors",
                 isActive
-                  ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                  : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                  ? "border-sport-yellow bg-sidebar-primary text-sidebar-primary-foreground"
+                  : "border-transparent text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               )}
             >
               <Icon className="w-4 h-4 shrink-0" />

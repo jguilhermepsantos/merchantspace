@@ -51,7 +51,7 @@ export function registerOrderTools(server: McpServer) {
     {
       title: "List seller orders",
       description:
-        "GET /api/oms/pvt/orders — lists orders in the MARKETPLACE account, filtered to the configured seller (VTEX_SELLER_ID). Read-only view: the orderIds it returns are marketplace-side ids and the order action tools will reject them. To act on an order, use vtex_list_seller_orders instead.",
+        "GET /api/oms/pvt/orders — lists orders in the MARKETPLACE account, filtered to the configured seller (VTEX_SELLER_NAME). Read-only view: the orderIds it returns are marketplace-side ids and the order action tools will reject them. To act on an order, use vtex_list_seller_orders instead.",
       inputSchema: listOrdersInput,
     },
     safe(listOrders)

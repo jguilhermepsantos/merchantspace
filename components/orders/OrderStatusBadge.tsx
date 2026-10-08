@@ -21,7 +21,7 @@ const STATUS_MAP: Record<string, StatusConfig> = {
   },
   "ready-for-handling": {
     label: "Ready to Handle",
-    className: "bg-indigo-100 text-indigo-700",
+    className: "bg-brand-100 text-brand-700",
   },
   handling: {
     label: "Handling",

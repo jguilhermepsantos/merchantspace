@@ -48,8 +48,11 @@ lives in `docs/`.
 
 ## Design system
 
-Modern admin SaaS: fixed 240px `zinc-900` sidebar with `lucide-react` icons,
-`indigo-600` accents, light only, Inter via `next/font/google`.
+Planeta Sport branding: fixed 240px navy (`brand-950`) sidebar with
+`lucide-react` icons, Planeta blue `brand-600` (#007dc3) accents and
+`sport-yellow` (#ffe200) highlights, square corners (`--radius: 0`), uppercase
+solid buttons, light only, Open Sans via `next/font/google`. The palette lives
+in `app/globals.css`; the wordmark is `components/layout/BrandMark.tsx`.
 
 ## Environment
 

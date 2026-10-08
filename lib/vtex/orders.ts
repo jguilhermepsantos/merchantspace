@@ -11,12 +11,15 @@ import type {
 
 const DEFAULT_PER_PAGE = 20;
 
-// Seller filter applied to all order queries by default
-const SELLER_ID = process.env.VTEX_SELLER_ID;
+// Seller filter applied to all order queries by default. OMS `f_sellerNames`
+// matches the seller's display NAME, not its id, so filtering on the id
+// returns zero orders whenever the two differ. VTEX_SELLER_ID is only a
+// fallback for accounts where they happen to be equal.
+const SELLER_NAME = process.env.VTEX_SELLER_NAME || process.env.VTEX_SELLER_ID;
 
 /**
  * GET /api/oms/pvt/orders
- * Lists orders filtered by the configured seller (VTEX_SELLER_ID).
+ * Lists orders filtered by the configured seller (VTEX_SELLER_NAME).
  */
 export async function listOrders(
   params: OrderListParams = {}
@@ -35,7 +38,7 @@ export async function listOrders(
     per_page: perPage,
     ...(q ? { q } : {}),
     ...(status ? { f_status: status } : {}),
-    ...(SELLER_ID ? { f_sellerNames: SELLER_ID } : {}),
+    ...(SELLER_NAME ? { f_sellerNames: SELLER_NAME } : {}),
   });
 
   return vtexFetch<VtexOrdersListResponse>(`/api/oms/pvt/orders${qs}`, {

@@ -17,12 +17,12 @@ interface TopbarProps {
 
 export function Topbar({ user }: TopbarProps) {
   return (
-    <header className="flex items-center justify-end px-6 h-14 bg-white border-b border-zinc-200 shrink-0">
+    <header className="flex items-center justify-end px-6 h-14 bg-white border-b-2 border-brand-600 shrink-0">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="sm" className="gap-2 text-zinc-700">
-            <div className="flex items-center justify-center w-7 h-7 rounded-full bg-indigo-100">
-              <User className="w-4 h-4 text-indigo-600" />
+            <div className="flex items-center justify-center w-7 h-7 rounded-full bg-brand-100">
+              <User className="w-4 h-4 text-brand-600" />
             </div>
             <span className="text-sm font-medium max-w-[200px] truncate">
               {user.email}

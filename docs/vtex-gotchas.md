@@ -119,6 +119,12 @@ permission.
 
 ## Orders and OMS
 
+**`f_sellerNames` filters on the seller's display name, not its id.** Passing
+the id (`planetaseller1012`) returns `total: 0` with a 200, while the name
+(`Planeta Seller 1`) returns the seller's orders. It only appears to work when
+the two are equal. The name is set in `VTEX_SELLER_NAME`; it is visible on any
+order detail under `sellers[].name`.
+
 **The seller account runs its OWN OMS.** It holds the fulfillment-side
 counterpart of each marketplace order, under a different id and a different
 status vocabulary:
